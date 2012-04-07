@@ -1,0 +1,11 @@
+{% extends 'admin/base_site.html' %}
+
+{% block content %}
+{% block object-tools %}{% endblock %}
+<ul>
+
+{% for x in files %}
+    <li>{{ x }}</li>
+{% endfor %}
+</ul>
+{% endblock %}
