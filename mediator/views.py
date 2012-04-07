@@ -1,9 +1,9 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.conf import settings
 from django.utils import simplejson as json
 import os
 from django.contrib.admin.views.decorators import staff_member_required
-from glob import glob
 import fnmatch
 
 
@@ -22,6 +22,15 @@ def is_query_valid(root):
         return False
 
     return True
+
+@staff_member_required
+def list(request):
+    files = []
+    for x in os.walk(settings.FILE_REPOSITORY_ROOT):
+        files.append(x)
+
+    return render(request, 'mediator/index.html',
+        {'title': 'Manage your files', 'files': files})
 
 @staff_member_required
 def query(request):
