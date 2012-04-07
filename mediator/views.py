@@ -29,7 +29,7 @@ def list(request):
     for x in os.walk(settings.FILE_REPOSITORY_ROOT):
         files.append(x)
 
-    return render(request, 'mediator/index.html',
+    return render(request, 'mediator/list.html',
         {'title': 'Manage your files', 'files': files})
 
 @staff_member_required

@@ -2,7 +2,7 @@ from django.conf.urls.defaults import *
 
 
 urlpatterns = patterns('mediator.views',
-    (r'^$', 'list'),
+    url(r'^$', 'list',  name='list'),
     (r'^query$', 'query'),
     (r'^search/$', 'search'),
     (r'^mkdir/$', 'mkdir'),
